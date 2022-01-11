@@ -14,7 +14,7 @@ WORKDIR $DISCOURSE_ROOT
 
 RUN git clone https://github.com/discourse/discourse.git --branch $DISCOURSE_VERSION --single-branch $DISCOURSE_ROOT
 
-RUN cd $DISCOURSE_ROOT/discourse/plugins
+RUN cd $DISCOURSE_ROOT/plugins
 
 RUN git clone https://github.com/anker-dtc/discourse-plugin-rainbow.git --branch main --single-branch
 
