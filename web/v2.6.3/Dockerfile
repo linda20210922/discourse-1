@@ -1,3 +1,4 @@
+
 FROM ruby:2.7.2
 
 ARG RENDER_EXTERNAL_HOSTNAME
@@ -14,9 +15,11 @@ WORKDIR $DISCOURSE_ROOT
 
 RUN git clone https://github.com/discourse/discourse.git --branch $DISCOURSE_VERSION --single-branch $DISCOURSE_ROOT
 
+# 进入项目插件目录
 RUN cd $DISCOURSE_ROOT/plugins
 
-RUN sudo -E -u discourse  git clone https://github.com/anker-dtc/discourse-plugin-rainbow.git
+#clone私有项目到plugins里
+RUN sudo -E -u discourse git clone https://rylazhang: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@github.com/anker-dtc/discourse-plugin-rainbow.git
 
 RUN apt-get update && apt-get install -y \
   brotli \
