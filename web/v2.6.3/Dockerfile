@@ -19,7 +19,7 @@ RUN git clone https://github.com/discourse/discourse.git --branch $DISCOURSE_VER
 RUN cd $DISCOURSE_ROOT/plugins
 
 #clone私有项目到plugins里
-RUN git clone git@github.com:anker-dtc/discourse-plugin-rainbow.git
+RUN git clone https://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@github.com/anker-dtc/discourse-plugin-rainbow.git
 
 RUN apt-get update && apt-get install -y \
   brotli \
