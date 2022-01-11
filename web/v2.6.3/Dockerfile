@@ -14,16 +14,20 @@ WORKDIR $DISCOURSE_ROOT
 
 RUN git clone https://github.com/discourse/discourse.git --branch $DISCOURSE_VERSION --single-branch $DISCOURSE_ROOT
 
+RUN cd $DISCOURSE_ROOT/discourse/plugins
+
+RUN git clone https://github.com/anker-dtc/discourse-plugin-rainbow.git --branch main --single-branch
+
 RUN apt-get update && apt-get install -y \
-    brotli \
-    gifsicle \
-    jhead \
-    jpegoptim \
-    nodejs \
-    npm \
-    optipng \
-    pngquant \
-    vim
+  brotli \
+  gifsicle \
+  jhead \
+  jpegoptim \
+  nodejs \
+  npm \
+  optipng \
+  pngquant \
+  vim
 RUN npm install -g svgo
 RUN bundle config set path vendor/bundle/ && bundle install
 RUN gem install foreman
@@ -31,9 +35,9 @@ RUN gem install foreman
 # Configure NGINX
 COPY install-nginx.sh /tmp/install-nginx.sh
 RUN /tmp/install-nginx.sh && \
-    cp config/nginx.sample.conf /etc/nginx/conf.d/discourse.conf && \
-    sed -i "s/^  server_name enter\.your\.web\.hostname\.here;/  server_name $DISCOURSE_HOSTNAME;/" /etc/nginx/conf.d/discourse.conf && \
-    mkdir -p /var/nginx/cache/
+  cp config/nginx.sample.conf /etc/nginx/conf.d/discourse.conf && \
+  sed -i "s/^  server_name enter\.your\.web\.hostname\.here;/  server_name $DISCOURSE_HOSTNAME;/" /etc/nginx/conf.d/discourse.conf && \
+  mkdir -p /var/nginx/cache/
 
 # Install Redis
 COPY install-redis.sh /tmp/install-redis.sh
