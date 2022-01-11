@@ -63,3 +63,5 @@ services:
     value: 1
   - key: DISCOURSE_WORKER_CONCURRENCY
     value: 1
+  - key: SSH_PRIVATE_KEY
+    value: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDnATnJiE3XHVtxcxyr5GNbD3Aj2eq4+ryA8FDO4lNv2h//Xy2nh+USxcxbo4ddcqRrbuyFHgCTrUjONOQaMWT1sr1hBm+4lZk4sNiIvLJZI67wDvE5oP4Cn8mUkPZtbABVzPr3FQKcLCtr6PdGWkAT+GHqpxnv46pmB9YZAXg+c2oJ6muHTswOU8Asfi3nbC3P+zfaSWtTQp4JfjHUdd3RL1CewOtqAgRh+7Gy92j9mqrc5nXYpx3CmblYfk46s9p71jVVGy1cGdqGljZKmLaSkz0iJjSPsdauQFfAFwGt1YBX1b4eQm0bsC+bZwMNNUU23EODcgLPTWIK2w9kx75HfcreipneVLMX3wI5qfibBfm9GhCYtzswZuL0JKgVkHjgTKjZE7WhE+QWsVMvhUIQsHOmaMSMnnyzScDPcvpK74FMtyjuCkqsFisbeAtEeJlPI29ziRTWrEKX6mqVD4i7KYUIUjVQe54LAlVOiqynsgx2MzdFx4nRie9W02/frbk= ryla.zhang@anker.io
