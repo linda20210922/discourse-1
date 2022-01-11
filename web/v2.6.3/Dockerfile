@@ -16,7 +16,7 @@ RUN git clone https://github.com/discourse/discourse.git --branch $DISCOURSE_VER
 
 RUN cd $DISCOURSE_ROOT/plugins
 
-RUN git clone https://github.com/anker-dtc/discourse-plugin-rainbow.git --branch main --single-branch
+RUN sudo -E -u discourse  git clone https://github.com/anker-dtc/discourse-plugin-rainbow.git
 
 RUN apt-get update && apt-get install -y \
   brotli \
