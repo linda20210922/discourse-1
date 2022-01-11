@@ -4,7 +4,6 @@ FROM ruby:2.7.2
 ARG RENDER_EXTERNAL_HOSTNAME
 ARG CUSTOM_DOMAIN
 ARG DISCOURSE_WORKER_CONCURRENCY
-ARG SSH_PRIVATE_KEY
 
 ENV DISCOURSE_HOSTNAME=${CUSTOM_DOMAIN:-$RENDER_EXTERNAL_HOSTNAME}
 ENV RAILS_ENV=production
@@ -18,9 +17,6 @@ RUN git clone https://github.com/discourse/discourse.git --branch $DISCOURSE_VER
 
 # 进入项目插件目录
 RUN cd $DISCOURSE_ROOT/plugins
-
-RUN mkdir /root/.ssh/
-RUN echo "${SSH_PRIVATE_KEY}" > /root/.ssh/id_rsa
 
 #clone私有项目到plugins里
 RUN git clone git@github.com:anker-dtc/discourse-plugin-rainbow.git
